@@ -2,10 +2,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Post } from "./components/Post";
 import { useEffect, useState } from "react";
-import supabase from "../lib - helper/supabaseClient";
+import supabase from "../lib/helper/supabaseClient";
 
 export default function App() {
-  const [user, setUser] = useEffect(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getSession = async () => {
@@ -22,7 +22,7 @@ export default function App() {
   }, []);
 
   const handleLogin = async () => {
-    const { error, data } = await supabase.auth.singInWithOAuth({
+    const { error, data } = await supabase.auth.signInWithOAuth({
       provider: "github",
     });
     if (error) {
@@ -34,15 +34,19 @@ export default function App() {
 
   return (
     <>
-      <Header />
-      <button onClick={handleLogin}>inicio sesion</button>
-      <Footer />
-      <Post
-        titulo={"hes ball"}
-        description={"good night"}
-        link={"./image/cerezo.jpeg"}
-        parrafo={"apple is good"}
-      />
+      <div>
+        <Header />
+        <div className="posicionButton">
+          <button onClick={handleLogin}>inicio sesion</button>
+        </div>
+        <Footer />
+        <Post
+          titulo={"hes ball"}
+          description={"good night"}
+          link={"./image/cerezo.jpeg"}
+          parrafo={"apple is good"}
+        />
+      </div>
     </>
   );
 }
