@@ -34,11 +34,11 @@ export default function App() {
 
   return (
     <>
+      <div className="posicionButton">
+        <button onClick={handleLogin}>inicio sesion</button>
+      </div>
       <div>
         <Header />
-        <div className="posicionButton">
-          <button onClick={handleLogin}>inicio sesion</button>
-        </div>
         <Footer />
         <Post
           titulo={"hes ball"}

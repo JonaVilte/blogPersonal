@@ -9,9 +9,9 @@ div {
 
 /* Estilos para el encabezado */
 header {
-  background-color: #f8f9fa;
+  background-color: #7fd3f5;
   padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #60c5ec;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,9 +38,9 @@ button:hover {
 
 /* Estilos para el pie de página */
 footer {
-  background-color: #f8f9fa;
+  background-color: #7fd3f5;
   padding: 10px 20px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #60c5ec;
   text-align: center;
 }
 
@@ -70,5 +70,20 @@ footer {
 }
 
 body {
-  background-color: #e2cdcd;
+  background-color: #97d8f7;
+}
+
+.aliaVertical{
+  display: flex;
+  align-items: flex-start;
+}
+
+.espacio{
+  margin-right: 20px;
+  max-width: 200px;
+}
+
+.centrar{
+  display: flex;
+  justify-content:center;
 }

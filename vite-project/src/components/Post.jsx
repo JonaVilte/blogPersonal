@@ -1,9 +1,13 @@
 export function Post({ titulo, description, link, parrafo }) {
   return (
     <>
-      <h2> {titulo} </h2>
-      <img src={link} alt={description} />
-      <p> {parrafo} </p>
+      <div>
+          <h2 className="centrar"> {titulo} </h2>
+          <div className="aliaVertical"> 
+              <img src={link} alt={description} className="espacio" />
+              <p> {parrafo} </p>       
+          </div>
+      </div>
     </>
   );
 }
