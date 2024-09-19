@@ -1,3 +1,3 @@
 export default function Header() {
-  return <header>Hola, un gusto este es mi header</header>;
+  return <header>My blog, Jonatan Vilte</header>;
 }

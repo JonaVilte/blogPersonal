@@ -34,19 +34,19 @@ export default function App() {
 
   return (
     <>
-      <div className="posicionButton">
-        <button onClick={handleLogin}>inicio sesion</button>
-      </div>
-      <div>
         <Header />
-        <Footer />
+        <div className="posicionButton">
+          <button onClick={handleLogin}>inicio sesion</button>
+        </div>
         <Post
           titulo={"hes ball"}
           description={"good night"}
           link={"./image/cerezo.jpeg"}
           parrafo={"apple is good"}
         />
-      </div>
+        
+        <Footer />
+      
     </>
   );
 }

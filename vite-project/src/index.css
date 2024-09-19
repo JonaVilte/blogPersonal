@@ -15,6 +15,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: slideIn 0.5s ease forwards;
 }
 
 /* Estilos para el botón de inicio de sesión */
@@ -26,6 +27,8 @@ button {
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
+  box-shadow: 0px 0px 10px #333;
+  transition: background-color 0.3s, transform 0.2s;
 }
 .posicionButton {
   display: flex;
@@ -34,6 +37,7 @@ button {
 
 button:hover {
   background-color: #4f96e0;
+  transform: scale(1.05);
 }
 
 /* Estilos para el pie de página */
@@ -42,6 +46,7 @@ footer {
   padding: 10px 20px;
   border-top: 1px solid #60c5ec;
   text-align: center;
+  animation: slideIn 0.5s ease forwards;
 }
 
 /* Estilos para el componente Post */
@@ -51,6 +56,9 @@ footer {
   padding: 15px;
   margin: 15px 0;
   background-color: #fff;
+  opacity: 0; /* Para animación de entrada */
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: 0.1s; /* Retardo para el efecto secuencial */
 }
 
 .post img {
@@ -73,17 +81,52 @@ body {
   background-color: #97d8f7;
 }
 
-.aliaVertical{
+.aliaVertical {
   display: flex;
   align-items: flex-start;
 }
 
-.espacio{
+.espacio {
   margin-right: 20px;
   max-width: 200px;
 }
 
-.centrar{
+.centrar {
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
+
+@keyframes show {
+  from {
+    opacity: 0; 
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1; 
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
