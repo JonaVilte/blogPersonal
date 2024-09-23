@@ -8,45 +8,77 @@ export default function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const getSession = async () => {
-      ///destructuracion
-      const { data, error } = await supabase.auth.getSession();
-      if (error) {
-        console.log(error);
-      } else {
-        setUser(data?.session?.user);
-      }
-    };
+    const session = supabase.auth.getSession();
+    setUser(session?.user || null);
 
-    getSession();
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      switch (event) {
+        case "SIGNED_IN":
+          setUser(session?.user);
+          break;
+        case "SIGNED_OUT":
+          setUser(null);
+          break;
+        default:
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
-  const handleLogin = async () => {
-    const { error, data } = await supabase.auth.signInWithOAuth({
+  const login = async () => {
+    await supabase.auth.signInWithOAuth({
       provider: "github",
     });
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(data);
-    }
+  };
+
+  const logout = async () => {
+    await supabase.auth.signOut();
   };
 
   return (
     <>
-        <Header />
+      {user ? (
         <div className="posicionButton">
-          <button onClick={handleLogin}>inicio sesion</button>
+          <h1>Authenticated</h1>
+          <button onClick={logout}>logout</button>
         </div>
+      ) : (
+        <div className="posicionButton">
+          <button onClick={login}>login Github</button>
+        </div>
+      )}
+
+      <Header />
+      <div className="animacion">
         <Post
           titulo={"hes ball"}
           description={"good night"}
           link={"./image/cerezo.jpeg"}
           parrafo={"apple is good"}
         />
-        
-        <Footer />
-      
+      </div>
+      <div className="animacion">
+        <Post
+          titulo={"hes ball"}
+          description={"good night"}
+          link={"./image/cerezo.jpeg"}
+          parrafo={"apple is good"}
+        />
+      </div>
+      <div className="animacion">
+        <Post
+          titulo={"hes ball"}
+          description={"good night"}
+          link={"./image/cerezo.jpeg"}
+          parrafo={"apple is good"}
+        />
+      </div>
+      <Footer />
     </>
   );
 }
