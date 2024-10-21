@@ -1,10 +1,9 @@
 /* Estilos generales para el contenedor principal */
-div {
+.marg {
   font-family: Arial, sans-serif;
   color: #333;
-  padding: 20px;
+  padding: 5px;
   max-width: 800px;
-  margin: 0 auto;
 }
 
 /* Estilos para el encabezado */
@@ -16,6 +15,10 @@ header {
   justify-content: space-between;
   align-items: center;
   animation: slideIn 0.5s ease forwards;
+  padding: 0 2rem; /* Ajuste del padding para centrar mejor */
+  height: 100px;
+  padding: 0 2rem; /* Padding ajustado para mejor centrado */
+
 }
 
 /* Estilos para el botón de inicio de sesión */
@@ -32,7 +35,10 @@ button {
 }
 .posicionButton {
   display: flex;
-  justify-content: end;
+  flex-direction: column; /* Cambia la dirección a vertical */
+  align-items: flex-end; /* Alinear los botones a la derecha */
+  margin-top: 10px; /* Separación de 10px entre los botones */
+
 }
 
 button:hover {
@@ -43,10 +49,14 @@ button:hover {
 /* Estilos para el pie de página */
 footer {
   background-color: #7fd3f5;
-  padding: 10px 20px;
   border-top: 1px solid #60c5ec;
   text-align: center;
-  animation: slideIn 0.5s ease forwards;
+
+  padding: 20px; /* Espacio interno */
+  display: flex; /* Utiliza flexbox para la disposición */
+  justify-content: space-between; /* Espacio entre columnas */
+  flex-wrap: wrap; /* Permite el ajuste de columnas */
+
 }
 
 /* Estilos para el componente Post */
@@ -96,37 +106,85 @@ body {
   justify-content: center;
 }
 
-@keyframes show {
-  from {
-    opacity: 0; 
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1; 
-    transform: scale(1);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.centrarText{
+  text-align: center;
 }
 
 
+.typing {
+  font-size: 3em;
+  display: inline-block; /* Permite que el ancho se ajuste al contenido */
+  border-right: 2px solid #000; /* Simula el cursor */
+  white-space: nowrap; /* Evita saltos de línea */
+  overflow: hidden; /* Esconde el texto fuera del contenedor */
+  animation: 
+    typing 5s steps(20, end) infinite, /* Escribir el texto */
+    blink-caret 0.7s step-end infinite; /* Cursor parpadeante */
+}
+
+/* Animación para escribir el texto */
+@keyframes typing {
+  0%, 25% {
+    width: 0; /* Comienza con un ancho de 0 */
+  }
+  50% {
+    width: 100%; /* El ancho completo del texto */
+  }
+  75% {
+    width: 100%; /* Mantiene el ancho completo del texto */
+  }
+  100% {
+    width: 0; /* Elimina el texto gradualmente */
+  }
+}
+
+/* Animación para parpadeo del cursor */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black; /* Color del cursor */
+  }
+}
+
+.pelis{
+  display: flex;
+  width: 100%;
+  height: 430px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.pelis img{
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease;
+}
+.pelis img:hover{
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(120%);
+}
+
+.title{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.centrarTodo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 100vw;
+}
