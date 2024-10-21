@@ -53,10 +53,50 @@ footer {
   text-align: center;
 
   padding: 20px; /* Espacio interno */
-  display: flex; /* Utiliza flexbox para la disposición */
   justify-content: space-between; /* Espacio entre columnas */
   flex-wrap: wrap; /* Permite el ajuste de columnas */
 
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo h3, .footer-logo p {
+  margin: 0;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-social .social-link {
+  display: flex;         /* Hace que la imagen y el texto estén en línea */
+  align-items: center;    /* Alinea verticalmente la imagen y el texto */
+  text-decoration: none;  /* Elimina el subrayado del enlace */
+  color: #000;           /* Color del texto */
+}
+
+.footer-social img {
+  height: 24px;
+  margin-right: 10px;     /* Espacio entre la imagen y el texto */
+}
+
+.footer-social p {
+  margin: 0;              /* Elimina el margen por defecto del <p> */
 }
 
 /* Estilos para el componente Post */
@@ -109,6 +149,7 @@ body {
 .centrarText{
   text-align: center;
 }
+
 
 
 .typing {
