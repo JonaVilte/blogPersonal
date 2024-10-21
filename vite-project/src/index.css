@@ -204,11 +204,11 @@ body {
   opacity: .8;
   transition: .5s ease;
 }
-.pelis img:hover{
-  cursor: crosshair;
+.pelis img:hover {
   width: 300px;
   opacity: 1;
   filter: contrast(120%);
+  transition: width 0.5s ease, opacity 0.5s ease, filter 0.5s ease; /* Transiciones más suaves */
 }
 
 .title{
@@ -228,4 +228,8 @@ body {
   align-items: center;
   height: 40vh;
   width: 100vw;
+}
+
+button:active {
+  transform: scale(0.98); /* Hace que el botón parezca que se presiona */
 }
